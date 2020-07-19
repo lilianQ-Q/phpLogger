@@ -9,7 +9,7 @@ class Logger{
    * Method that allow the user to write data into a log file.
    * 
    * @param string $data is the data that you want to put into the log file.
-   * @param string $type is the type of the data. |log|error|unknow|
+   * @param string $type is the type of the data. |LOG|INFO|WARN|ERROR|
    * @param string $file is the concerned file. Default = main.log
    * @param bool $flush is true or false. If true then the content will be erase after else it will not. Default = false.
    * 
@@ -17,7 +17,6 @@ class Logger{
    */
   public static function log($data, $type="INFO", $file="main" , $flush = false){
     //todo parse la data si celle ci est un tableau ou du json ou quoi.
-    // | WARN | ERROR | INFO |
     $log_path = strpos("$file",".log") ? LOG_PATH . $file : LOG_PATH . $file . ".log";
     if(file_exists($log_path)){
       $current_file = fopen($log_path, 'a');
@@ -59,7 +58,5 @@ class Logger{
       }
     }
   }
-
 }
-
 ?>
