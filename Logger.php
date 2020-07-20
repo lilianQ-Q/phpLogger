@@ -20,7 +20,7 @@ class Logger{
     $log_path = strpos("$file",".log") ? LOG_PATH . $file : LOG_PATH . $file . ".log";
     if(file_exists($log_path)){
       $current_file = fopen($log_path, 'a');
-      $final_data = "[".date("d/m/Y H:i:s")."][$type] : $data";
+      $final_data = "[".date("d/m/Y H:i:s")."][$type] $data";
       return(fwrite($current_file,"$final_data\n") > 0);
     }
     return(false);
